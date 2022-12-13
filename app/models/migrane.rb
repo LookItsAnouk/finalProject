@@ -1,0 +1,2 @@
+class Migrane < ApplicationRecord
+end

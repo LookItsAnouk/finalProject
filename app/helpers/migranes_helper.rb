@@ -1,0 +1,2 @@
+module MigranesHelper
+end
