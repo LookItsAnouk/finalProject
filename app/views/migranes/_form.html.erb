@@ -1,0 +1,27 @@
+
+<%= form_for @migrane do |f| %>
+  <div>
+    <%= f.label :migrane_date %>
+    <br>
+    <%= f.date_field :migrane_date , :size=>"50" %>
+  </div>
+  <div>
+  <br>
+    Severity:
+    <%= f.radio_button :severity, "Mild" %>
+    <%= f.label :severity_mild, "Mild" %>
+    <%= f.radio_button :severity, "Moderate" %>
+    <%= f.label :age_moderate, "Moderate" %>
+    <%= f.radio_button :severity, "severe" %>
+    <%= f.label :age_severe, "Severe" %>
+    
+  </div>
+  <div>
+    <br>
+    <%= f.label :notes %>
+    <br>
+    <%= f.text_area :notes, :size=>"50" %>
+  </div>
+  
+  <%= f.submit %>
+<% end %>

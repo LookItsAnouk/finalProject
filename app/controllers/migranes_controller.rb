@@ -4,7 +4,7 @@ class MigranesController < ApplicationController
     before_action :authorize_user!, only:[:edit, :update, :destroy]
 
     def index
-        @migranes = Migranes.order(created_at: :desc)
+        @migrane = Migrane.order(created_at: :desc)
     end
 
     def new
@@ -32,6 +32,25 @@ class MigranesController < ApplicationController
     
     end
 
+    def update
+     if @migrane.update(migrane_params)
+            flash[:success] = "Record successfully updated"
+            redirect_to @migrane
+        else
+            flash[:error] = "Something went wrong"
+            render :edit  
+        end
+    end
+
+    def edit
+    
+    end
+
+    def destroy
+        @migrane.destroy
+        redirect_to migranes_path
+    end
+
     private
 
     def migrane_params
@@ -45,7 +64,8 @@ class MigranesController < ApplicationController
             :symptoms
         )
     end
-    def find_auction
+    
+    def find_migrane
         @migrane = Migrane.find params[:id]
     end
 

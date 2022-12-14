@@ -1,0 +1,71 @@
+<%= render "migranes/navBar" %>
+<h1>Sign Up</h1>
+
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :first_name %>
+    <br>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <br>
+    <%= f.text_field :last_name %>
+  </div>
+  
+  <div>
+    <%= f.label :email %>
+    <br>
+    <%= f.email_field :email %>
+  </div>
+ 
+  <div>
+    <%= f.label :password %>
+    <br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %>
+    <br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div>
+  <br>
+   Would you like to track menstruation?
+    <%= f.radio_button :menstruator, "Yes" %>
+    <%= f.label :yes, "Yes" %>
+    <%= f.radio_button :menstruator, "No" %>
+    <%= f.label :no, "No" %>
+  </div>
+  <br>
+  <div>For each of the following, please list items you would like to track <b>separated by a comma</b>.
+  <br>If the section is not applicable, <b>leave it blank</b>.</div>
+  <div>
+  <br>
+    <%= f.label :meds_list, 'Please list each of your meds:' %>
+    <br>
+    <%= f.text_field :meds_list, size: 50 %>
+  </div>
+  <div>
+    <%= f.label :triggers_list, 'Please list your triggers:' %>
+    <br>
+    <%= f.text_field :triggers_list, size: 50 %>
+  </div>
+  <div>
+    <%= f.label :symptoms_list, 'Please list symptoms you would like to track:' %>
+    <br>
+    <%= f.text_field :symptoms_list, size: 50 %>
+  </div>
+  <br>
+  <%= f.submit %>
+<% end %>

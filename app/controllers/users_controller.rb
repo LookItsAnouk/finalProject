@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :find_user, only: [:show, :edit, :update]
+    
     def new
         @user = User.new
     end
@@ -13,7 +15,25 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        
+    end
+      
+    def update
+
+        if @user.update(edit_user_params)
+            flash[:success]
+        else
+            flash[:alert] = user.errors.full_messages.join(", ")
+        end
+        redirect_to migranes_path
+    end
+
     private
+    
+    def find_user
+        @user = User.find(params[:id])
+      end
 
     def user_params
         params.require(:user).permit(

@@ -1,0 +1,10 @@
+<%= render "navBar" %>
+<h1><%= @migrane.migrane_date %></h1>
+<p><%= @migrane.notes %></p>
+<p><%= @migrane.severity %></p>
+
+<% if can? :crud, @migrane %>
+  <%= button_to "Edit", edit_migrane_path(@migrane ), method: :get%>
+  <%= button_to "Delete", migrane_path(@migrane.id), method: :delete, data: {confirm: "Are you sure"} %></p>
+<% end %>
+
