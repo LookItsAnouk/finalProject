@@ -9,10 +9,16 @@ class MigranesController < ApplicationController
 
     def new
         @migrane = Migrane.new
+        @user =  current_user
+        @symptoms = @user.symptoms_list.split(',')
+        @triggers = @user.triggers_list.split(',')
+        @medications = @user.meds_list.split(',')
+        
     end
 
     def create
         @migrane = Migrane.new(migrane_params)
+        
         @migrane.user = current_user
         if @migrane.is_valid?
             if @migrane.save 
@@ -29,7 +35,7 @@ class MigranesController < ApplicationController
     end
 
     def show
-    
+        @user = User.find(params[:id])
     end
 
     def update

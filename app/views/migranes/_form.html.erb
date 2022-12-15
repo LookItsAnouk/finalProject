@@ -17,6 +17,39 @@
     
   </div>
   <div>
+  <br>
+  Symptoms:
+    
+    <% @symptoms.each do |s| %>
+        <div class="checkbox">
+            <%= f.check_box "symptoms"  %>
+            <%= f.label "symptoms", s %>
+        </div>
+    <% end %>
+  </div>
+   <div>
+  <br>
+ Triggers:
+    
+    <% @triggers.each do |t| %>
+        <div class="checkbox">
+            <%= f.check_box "triggers"  %>
+            <%= f.label "triggers", t %>
+        </div>
+    <% end %>
+  </div>
+   <div>
+  <br>
+  Medications:
+    
+    <% @medications.each do |m| %>
+        <div class="checkbox">
+            <%= f.check_box "medications"  %>
+            <%= f.label "medications", m %>
+        </div>
+    <% end %>
+  </div>
+  <div>
     <br>
     <%= f.label :notes %>
     <br>

@@ -18,10 +18,14 @@ class UsersController < ApplicationController
     def edit
         
     end
+
+    def show
+    
+    end
       
     def update
 
-        if @user.update(edit_user_params)
+        if @user.update(user_params)
             flash[:success]
         else
             flash[:alert] = user.errors.full_messages.join(", ")
@@ -30,7 +34,7 @@ class UsersController < ApplicationController
     end
 
     private
-    
+
     def find_user
         @user = User.find(params[:id])
       end

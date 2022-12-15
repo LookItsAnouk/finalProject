@@ -26,7 +26,7 @@
                     </li>
                 
                     <span class="navbar-text" style ="margin-right: 5px">
-                    Hello <%= link_to current_user.first_name, edit_user_path(@user.id) %> 
+                    Hello <%= link_to current_user.first_name, edit_user_path(current_user.id) %> 
                     </span>
                     <span class="navbar-text" >
                     <%= button_to "Logout", session_path, method: :delete,
