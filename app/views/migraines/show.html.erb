@@ -1,0 +1,12 @@
+<%= render "navBar" %>
+<h2><%= @migraine.migraine_date.strftime("%d of %B, %Y") %></h2>
+<p><%= @migraine.notes %></p>
+<p><%= @migraine.severity %></p>
+<p><%= @migraine.triggers%></p>
+<p><%= @migraine.medications %></p>
+<p><%= @migraine.symptoms%></p>
+<% if can? :crud, @migraine %>
+  <%= button_to "Edit", edit_migraine_path(@migraine), method: :get%>
+  <%= button_to "Delete", migraine_path(@migraine.id), method: :delete, data: {confirm: "Are you sure"} %></p>
+<% end %>
+

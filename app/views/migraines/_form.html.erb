@@ -1,13 +1,14 @@
 
-<%= form_for @migrane do |f| %>
+<h3>Record a New Migraine:</h3>
+<%= form_for @migraine do |f| %>
   <div>
-    <%= f.label :migrane_date %>
+    <b><%= f.label :migraine_date %>:</b>
     <br>
-    <%= f.date_field :migrane_date , :size=>"50" %>
+    <%= f.date_field :migraine_date , :size=>"50" %>
   </div>
   <div>
   <br>
-    Severity:
+    <b>Severity:</b>
     <%= f.radio_button :severity, "Mild" %>
     <%= f.label :severity_mild, "Mild" %>
     <%= f.radio_button :severity, "Moderate" %>
@@ -18,29 +19,30 @@
   </div>
   <div>
   <br>
-  Symptoms:
+  <b>Symptoms:</b>
     
     <% @symptoms.each do |s| %>
         <div class="checkbox">
-            <%= f.check_box "symptoms"  %>
+            <%= f.check_box :symptoms, { multiple: true }, s,  nil %>
             <%= f.label "symptoms", s %>
         </div>
     <% end %>
   </div>
    <div>
   <br>
- Triggers:
-    
+ <b>Triggers:</b>
+    <div class="checkbox">
     <% @triggers.each do |t| %>
-        <div class="checkbox">
+        
             <%= f.check_box "triggers"  %>
             <%= f.label "triggers", t %>
-        </div>
+        
     <% end %>
+    </div>
   </div>
    <div>
   <br>
-  Medications:
+  <b>Medications:</b>
     
     <% @medications.each do |m| %>
         <div class="checkbox">
@@ -51,7 +53,7 @@
   </div>
   <div>
     <br>
-    <%= f.label :notes %>
+    <b><%= f.label :notes %>:</b>
     <br>
     <%= f.text_area :notes, :size=>"50" %>
   </div>

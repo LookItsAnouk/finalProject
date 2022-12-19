@@ -14,8 +14,8 @@ class Ability
 
     alias_action :create, :read, :update, :delete, :to => :crud
 
-    can :crud, Migrane do |migrane|
-        user == migrane.user
+    can :crud, Migraine do |migraine|
+        user == migraine.user
     end
   end
 end

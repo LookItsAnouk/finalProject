@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     def show
     
     end
+
+    def home
+        render :home
+    end
       
     def update
 
@@ -30,7 +34,7 @@ class UsersController < ApplicationController
         else
             flash[:alert] = user.errors.full_messages.join(", ")
         end
-        redirect_to migranes_path
+        redirect_to migraines_path
     end
 
     private
