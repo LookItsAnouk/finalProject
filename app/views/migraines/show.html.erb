@@ -9,4 +9,5 @@
   <%= button_to "Edit", edit_migraine_path(@migraine), method: :get%>
   <%= button_to "Delete", migraine_path(@migraine.id), method: :delete, data: {confirm: "Are you sure"} %></p>
 <% end %>
+<%= render "layouts/footer" %>
 

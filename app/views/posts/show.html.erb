@@ -1,26 +1,18 @@
 <%= render "migraines/navBar" %>
 
-<h1><%= @post.title %></h1>
+<h3><%= @post.title %></h3>
 
 <p><%= @post.body %></p>
+<p>By: <%= @post.user.first_name %></p>
 
-<p>Created <%= time_ago_in_words(@post.created_at) %> ago </p>
+<p style="font-size:10px;">Created <%= time_ago_in_words(@post.created_at) %> ago </p>
 
 <% if can? :crud, @post %>
   <%= button_to "Edit", edit_post_path(@post), method: :get, class:"button-8"%>
   <%= button_to "Delete", post_path(@post.id), method: :delete, data: {confirm: "Are you sure"}, class:"button-8" %></p>
 <% end %>
 
-<% @post.comments.each do |com| %>
-    <%= com.body %>
-    <p>Created <%= time_ago_in_words(com.created_at) %> ago 
-    <% if can? :crud, com %>
-      <%= link_to 'Delete',  post_comment_path(@post.id, com.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button-8" %>
-    <% end %>
-    </p>
-    <hr>
-<% end %>
- 
+<hr>
 <%= @comment.errors.full_messages.join(', ') %>
 <p> Add a Comment:</p>
 <%= form_for [@post, @comment] do |f| %>
@@ -28,4 +20,21 @@
     <br>
     <%= f.submit :Create, class:"button-8" %>
 <% end %>
+<br>
+<p style="font-weight: bold;"> Comments:</p>
 
+<% @post.comments.each do |com| %>
+    <%= com.body %>
+    <br>
+    By: <%= com.user.first_name %>
+    <p style="font-size:10px;">Created <%= time_ago_in_words(com.created_at) %> ago 
+    <% if can? :crud, com %>
+      <%= link_to 'Delete',  post_comment_path(@post.id, com.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button-8" %>
+    <% end %>
+    </p>
+    
+<% end %>
+ 
+
+
+<%= render "layouts/footer" %>
