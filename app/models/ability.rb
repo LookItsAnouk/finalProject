@@ -17,5 +17,14 @@ class Ability
     can :crud, Migraine do |migraine|
         user == migraine.user
     end
+
+    can :crud, Post do |post|
+        user == post.user
+      end
+  
+    can :crud, Comment do |comment|
+        user == comment.user 
+    end
+
   end
 end

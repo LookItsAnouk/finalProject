@@ -11,20 +11,20 @@ class MigrainesController < ApplicationController
         @migraine = Migraine.new
         @user =  current_user
         @symptoms = @user.symptoms_list.split(',').to_a
-        @triggers = @user.triggers_list.split(',')
-        @medications = @user.meds_list.split(',')
+        @triggers = @user.triggers_list.split(',').to_a
+        @medications = @user.meds_list.split(',').to_a
         
     end
 
 
     def create
         @migraine = Migraine.new(migraine_params)
-        
         @migraine.user = current_user
+        
         if @migraine.is_valid?
+            
             if @migraine.save 
                 flash[:success] = "Migraine added"
-                p @migraine
                 redirect_to @migraine
             else
                 flash[:error] = "Something went wrong"
@@ -37,6 +37,7 @@ class MigrainesController < ApplicationController
     end
 
     def show
+        @migraine = Migraine.find params[:id]
     end
 
     def update
@@ -50,13 +51,22 @@ class MigrainesController < ApplicationController
     end
 
     def edit
-    
+        @user =  current_user
+        @symptoms = @user.symptoms_list.split(',').to_a
+        @triggers = @user.triggers_list.split(',').to_a
+        @medications = @user.meds_list.split(',').to_a
     end
 
     def destroy
         @migraine.destroy
         redirect_to migraines_path
     end
+
+    def calendar
+        @migraines = Migraine.all
+       
+    end
+
 
     private
 
@@ -65,9 +75,9 @@ class MigrainesController < ApplicationController
             :migraine_date, 
             :severity, 
             :notes,
-            :medications,
-            :triggers,
-            :symptoms
+            medications: [],
+            triggers: [],
+            symptoms: []
         )
     end
     

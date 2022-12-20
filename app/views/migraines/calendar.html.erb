@@ -1,0 +1,15 @@
+<%= render "navBar" %>
+
+  <%= month_calendar(events: @migraines) do |date, migraines| %>
+  <%= date.day %>
+
+  <% migraines.each do |migraine| %>
+    <div>
+      <%= migraine.severity %>
+    </div>
+  <% end %>
+
+<% end %>
+
+
+

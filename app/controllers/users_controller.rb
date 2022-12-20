@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     def home
-        render :home
+    
     end
       
     def update

@@ -13,7 +13,7 @@
     <%= f.label :severity_mild, "Mild" %>
     <%= f.radio_button :severity, "Moderate" %>
     <%= f.label :age_moderate, "Moderate" %>
-    <%= f.radio_button :severity, "severe" %>
+    <%= f.radio_button :severity, "Severe" %>
     <%= f.label :age_severe, "Severe" %>
     
   </div>
@@ -23,31 +23,28 @@
     
     <% @symptoms.each do |s| %>
         <div class="checkbox">
-            <%= f.check_box :symptoms, { multiple: true }, s,  nil %>
-            <%= f.label "symptoms", s %>
+            <%= f.check_box :symptoms, { multiple: true }, s.strip, nil %>
+            <%= f.label s.strip, s.strip %>
         </div>
     <% end %>
   </div>
    <div>
   <br>
  <b>Triggers:</b>
-    <div class="checkbox">
-    <% @triggers.each do |t| %>
-        
-            <%= f.check_box "triggers"  %>
-            <%= f.label "triggers", t %>
-        
-    <% end %>
-    </div>
+      <% @triggers.each do |t| %>
+        <div class="checkbox">
+          <%= f.check_box :triggers, { multiple: true }, t.strip, nil  %>
+          <%= f.label t.strip, t.strip %>
+        </div>
+      <% end %>
   </div>
    <div>
   <br>
   <b>Medications:</b>
-    
     <% @medications.each do |m| %>
         <div class="checkbox">
-            <%= f.check_box "medications"  %>
-            <%= f.label "medications", m %>
+            <%= f.check_box :medications, { multiple: true }, m.strip, nil  %>
+          <%= f.label m.strip, m.strip %>
         </div>
     <% end %>
   </div>

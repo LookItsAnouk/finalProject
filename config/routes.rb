@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "migraines#index"
 
+  resources :posts do 
+    resources :comments, only: [:create, :destroy]
+  end
+  
   resources :migraines
 
   resources :users, only: [:new, :create, :edit, :update]
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :destroy, :create]
 
   get '/home', to: 'users#home', as: :home
+  get '/calendar', to: 'migraines#calendar', as: :calendar
 
   # for version 2 
   # resources :posts do
