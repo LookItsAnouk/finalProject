@@ -1,5 +1,5 @@
 class MigrainesController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show, :home]
+    before_action :authenticate_user!, except: [:index, :show, :home, :calendar]
     before_action :find_migraine, only: [:show, :edit, :update, :destroy]
     before_action :authorize_user!, only:[:edit, :update, :destroy]
 
@@ -63,8 +63,8 @@ class MigrainesController < ApplicationController
     end
 
     def calendar
-        @migraines = Migraine.all
-       
+        @migraines = current_user.migraines
+        
     end
 
 

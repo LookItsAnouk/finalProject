@@ -52,6 +52,16 @@
    background-color : rgb(224, 243, 204); 
 
    }
+   input[type="email"], textarea {
+
+      background-color : rgb(224, 243, 204); 
+   
+      }
+   input[type="password"], textarea {
+
+      background-color : rgb(224, 243, 204); 
+   
+      }
 
    input[type="date"], datefield{
 
@@ -59,14 +69,11 @@
 
    }
 
-   .simple-calendar {
-      .prev-month {}
-      .next-month { }
-      .current-month {
-        }
-    
+   .simple-calendar {  
+
       .has-events {
          background-color: lightsalmon;
+      
       }
     }
 
@@ -79,9 +86,9 @@
 
 /* CSS */
 .button-8 {
-  background-color: #e4f4e1;
+  background-color: rgb(224, 243, 204);
   border-radius: 3px;
-  border: 1px solid #8ec77a;
+  border: 1px solid #0d100c;
   box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;
   color: #419d39;
@@ -120,6 +127,23 @@
   color: #44772c;
 }
 
+.comment{
+   border: 1px solid rgba(16, 46, 46, 1);
+   background-color: rgb(224, 243, 204);
+   float: left;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   min-width: 200px;
+   
+}
+
+.icon{
+   width: 20px ;
+   height: 20px ;
+}
 
 
 

@@ -6,8 +6,8 @@
 <p> Triggers: <%= @migraine.triggers.to_str.slice(2..-3) %></p>
 <p> Medications: <%= @migraine.medications.to_str.slice(2..-3)  %></p>
 <% if can? :crud, @migraine %>
-  <%= button_to "Edit", edit_migraine_path(@migraine), method: :get%>
-  <%= button_to "Delete", migraine_path(@migraine.id), method: :delete, data: {confirm: "Are you sure"} %></p>
+  <%= button_to "Edit", edit_migraine_path(@migraine), method: :get, class:"button-8"%>
+  <%= button_to "Delete", migraine_path(@migraine.id), method: :delete, data: {confirm: "Are you sure"}, class:"button-8" %></p>
 <% end %>
 <%= render "layouts/footer" %>
 

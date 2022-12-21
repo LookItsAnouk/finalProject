@@ -1,6 +1,6 @@
 <%= render "navBar" %>
 
-<div class="card-columns" >
+<div class="card-columns" style="padding: 10px;">
 <% if user_signed_in? %>
   <% @migraine.each do |migraine| %>
     <% if migraine.user_id == current_user.id %>
