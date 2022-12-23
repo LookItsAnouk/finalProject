@@ -4,7 +4,7 @@ class MigrainesController < ApplicationController
     before_action :authorize_user!, only:[:edit, :update, :destroy]
 
     def index
-        @migraine = Migraine.order(created_at: :desc)
+        @migraine = Migraine.order(migraine_date: :desc)
     end
 
     def new

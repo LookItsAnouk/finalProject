@@ -145,6 +145,12 @@
    height: 20px ;
 }
 
+@media print {
+   div.navbar.navbar-expand-med.navbar-light {
+     display: none;
+   }
+ }
+
 
 
  

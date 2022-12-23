@@ -1,5 +1,9 @@
 <%= render "navBar" %>
-
+<div class="container">
+  <div class="row">
+      <h3>Migraine History</h3>
+  </div>
+</div>
 <div class="card-columns" style="padding: 10px;">
 <% if user_signed_in? %>
   <% @migraine.each do |migraine| %>
