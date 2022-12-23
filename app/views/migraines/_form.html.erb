@@ -1,0 +1,72 @@
+<div class="mask d-flex align-items-center h-100 gradient-custom-3 pb-0">
+    <div class="container h-100 pb-0">
+      <div class="container row d-flex justify-content-center align-items-center h-100 pb-0">
+        <div class="container col-12 col-md-9 col-xl-7 col-xl-6 pb-0">
+          <div class="card m-4" style="">
+            <div class="card-body px-5 pt-5">
+
+              <h3>Record a New Migraine:</h3>
+              <%= form_for @migraine do |f| %>
+                <div>
+                  <b><%= f.label :migraine_date %>:</b>
+                  <br>
+                  <%= f.date_field :migraine_date , :size=>"50" %>
+                </div>
+                <div>
+                <br>
+                  <b>Severity:</b>
+                  <%= f.radio_button :severity, "Mild" %>
+                  <%= f.label :severity_mild, "Mild" %>
+                  <%= f.radio_button :severity, "Moderate" %>
+                  <%= f.label :age_moderate, "Moderate" %>
+                  <%= f.radio_button :severity, "Severe" %>
+                  <%= f.label :age_severe, "Severe" %>
+                  
+                </div>
+                <div>
+                <br>
+                <b>Symptoms:</b>
+                  
+                  <% @symptoms.each do |s| %>
+                      <div class="checkbox">
+                          <%= f.check_box :symptoms, { multiple: true }, s.strip, nil %>
+                          <%= f.label s.strip, s.strip %>
+                      </div>
+                  <% end %>
+                </div>
+                <div>
+                <br>
+              <b>Triggers:</b>
+                    <% @triggers.each do |t| %>
+                      <div class="checkbox">
+                        <%= f.check_box :triggers, { multiple: true }, t.strip, nil  %>
+                        <%= f.label t.strip, t.strip %>
+                      </div>
+                    <% end %>
+                </div>
+                <div>
+                <br>
+                <b>Medications:</b>
+                  <% @medications.each do |m| %>
+                      <div class="checkbox">
+                          <%= f.check_box :medications, { multiple: true }, m.strip, nil  %>
+                        <%= f.label m.strip, m.strip %>
+                      </div>
+                  <% end %>
+                </div>
+                <div>
+                  <br>
+                  <b><%= f.label :notes %>:</b>
+                  <br>
+                  <%= f.text_area :notes, :size=>"35" %>
+                </div>
+                
+                <%= f.submit :'Add Migraine', class:"button-8" %>
+              <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

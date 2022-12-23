@@ -13,3 +13,144 @@
  *= require_tree .
  *= require_self
  */
+
+   @import "bootstrap";
+   @import "simple_calendar";
+
+   .buttonTo{
+      background-color: rgb(163, 160, 160);
+      border-radius: 3px;
+      color: rgb(61, 55, 55);
+   }
+
+   .linkTo {
+      color: rgb(61, 55, 55);
+   }
+
+   .nav-link{
+      color: rgb(61, 55, 55) ;
+   }
+
+   a{
+      color: darkgreen;
+   }
+
+   body{
+      background-color: rgb(162, 197, 138);
+   }
+   .main{
+      padding-left:10px;
+   }
+
+   .card{
+      background-color: rgb(224, 243, 204);
+   }
+
+
+   input[type="text"], textarea {
+
+   background-color : rgb(224, 243, 204); 
+
+   }
+   input[type="email"], textarea {
+
+      background-color : rgb(224, 243, 204); 
+   
+      }
+   input[type="password"], textarea {
+
+      background-color : rgb(224, 243, 204); 
+   
+      }
+
+   input[type="date"], datefield{
+
+      background-color : rgb(224, 243, 204); 
+
+   }
+
+   .simple-calendar {  
+
+      .has-events {
+         background-color: lightsalmon;
+      
+      }
+    }
+
+    .calendar-title{
+      font-weight: bold;
+      font-size: larger;
+      padding:10px;
+    }
+
+
+/* CSS */
+.button-8 {
+  background-color: rgb(224, 243, 204);
+  border-radius: 3px;
+  border: 1px solid #0d100c;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #419d39;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-8:hover,
+.button-8:focus {
+  background-color: #b5eab3;
+  color: #31772c;
+}
+
+.button-8:focus {
+  box-shadow: 0 0 0 4px rgba(43, 255, 0, 0.15);
+}
+
+.button-8:active {
+  background-color: #bae4a0;
+  box-shadow: none;
+  color: #44772c;
+}
+
+.comment{
+   border: 1px solid rgba(16, 46, 46, 1);
+   background-color: rgb(224, 243, 204);
+   float: left;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   min-width: 200px;
+   
+}
+
+.icon{
+   width: 20px ;
+   height: 20px ;
+}
+
+@media print {
+   div.navbar.navbar-expand-med.navbar-light {
+     display: none;
+   }
+ }
+
+
+
+ 

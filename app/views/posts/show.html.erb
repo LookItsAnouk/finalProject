@@ -1,0 +1,51 @@
+<%= render "migraines/navBar" %>
+
+<h3><%= @post.title %></h3>
+
+<p><%= @post.body %></p>
+<p>By: <%= @post.user.first_name %></p>
+
+<p style="font-size:10px;">Created <%= time_ago_in_words(@post.created_at) %> ago </p>
+
+<% if can? :crud, @post %>
+  <%= button_to "Edit", edit_post_path(@post), method: :get, class:"button-8"%>
+  <%= button_to "Delete", post_path(@post.id), method: :delete, data: {confirm: "Are you sure"}, class:"button-8" %></p>
+<% end %>
+
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+            <%= @comment.errors.full_messages.join(', ') %>
+                <h4>Comments</h4>
+                <% @post.comments.each do |com| %>
+                <div class="comment mt-4 text-justify float-left">
+                  <h4><%= com.user.first_name %></h4>
+                  <P style="font-size:10px;"> <%= time_ago_in_words(com.created_at) %> ago</p>
+                  
+                  <p><%= com.body %>   
+                    <% if can? :crud, com %>
+                      | <%= link_to 'Delete',  post_comment_path(@post.id, com.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, style:"color:black; "%>
+                    <% end %>
+                    </p>
+                </div>
+                    </p>
+                <% end %>  
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                    <h5>Leave a comment</h5>
+                    <%= form_for [@post, @comment] do |f| %>
+                        <%= f.text_area :body %>
+                        <br>
+                        <%= f.submit :post, class:"button-8" %>
+                    <% end %>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+
+
+<%= render "layouts/footer" %>

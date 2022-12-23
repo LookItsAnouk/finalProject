@@ -1,0 +1,31 @@
+<%= render "migraines/navBar" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 style="padding:10px">Migraine Forum</h3>
+    </div>
+    <div class="col-sm">
+      <div style="text-align: right; padding: 10px;" >
+        <%= button_to "New Post", new_post_path(@post), method: :get, class:"button-8" %> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-columns" style="padding: 10px;" >
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text" style="font-size:14px; padding:10px;"> Here in our forum you can discuss symptoms, challenges and successes on your migraine journey. Please treat others how you would like to be treated. <b>We will not tolerate hate speech, bullying or discrimination and any posts involving such content will be deleted.</b> </p>
+    </div>    
+  </div>
+  <% @posts.each do |post| %>
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to post.title, post %></h5>
+        <p class="card-text"><%= post.body %></p>
+        <p class="card-text">Author: <%= post.user.first_name %></p>
+      </div>    
+    </div>  
+  <% end %>
+</div>
+<%= render "layouts/footer" %>

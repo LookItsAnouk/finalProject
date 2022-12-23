@@ -1,0 +1,59 @@
+
+    <nav class="navbar navbar-expand-med navbar-light" style="background-color: #a6a8ab;">
+    <a class="navbar-brand" href="./" style ="margin-left: 5px">
+    <%= image_tag('human-brain.png', size: '55x55', alt:"", class:"d-inline-block align-top", style:"margin-left: 25px")%>
+     <p class="text-dark">Migraine Mate</p>
+    </a>
+    <p> <% flash.each do |type, message| %>
+                <div class="alert alert-info" role=alert >
+                <%= type + "--" + message %>
+                </div>
+            <% end %> <p>
+
+  <div class=" navbar navbar-expand ">
+    <ul class="navbar-nav mr-auto">
+        <div class=" navbar navbar-expand ">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home</a>
+                 </li>
+                <% if user_signed_in? %>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/posts">Forum</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/migraines/new">Record a Migraine</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">History</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/calendar">Calendar</a>
+                    </li>
+                
+                    <span class="navbar-btn" style ="margin-right: 5px; color: rgb(61, 55, 55);">
+                    Hello <%= link_to current_user.first_name, edit_user_path(current_user.id), class:'linkTo' %>! 
+                  
+                    <%= button_to "Logout", session_path, method: :delete,
+                    class: 'buttonTo',
+                    data: {confirm: "are you sure you want to log out?"}%>
+                    </span>
+                <% else %>
+                    <li class="navbar-text">
+                       <%= button_to "Login", new_session_path, method: :get, 
+                       class: 'buttonTo' %>
+                    </li>
+                    <li class="navbar-text" style ="margin-left: 5px">
+                        <%= button_to "Sign Up", new_user_path, method: :get,
+                        class: 'buttonTo' %>
+                    </li>
+                <% end %>
+  </div>
+</nav>
+<div class="main">
+
+<br>

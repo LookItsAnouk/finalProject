@@ -1,7 +1,7 @@
-class CreateMigranes < ActiveRecord::Migration[7.0]
+class CreateMigraines < ActiveRecord::Migration[7.0]
   def change
-    create_table :migranes do |t|
-      t.datetime :migrane_date
+    create_table :migraines do |t|
+      t.datetime :migraine_date
       t.string :severity
       t.text :notes
       t.text :medications, default: "None", null: false

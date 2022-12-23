@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  root "migranes#index"
+  root "migraines#index"
 
-  resources :migranes, only: [:new, :destroy, :create]
+  resources :posts do 
+    resources :comments, only: [:create, :destroy]
+  end
+  
+  resources :migraines
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
 
   resource :session, only: [:new, :destroy, :create]
+
+  get '/home', to: 'users#home', as: :home
+  get '/calendar', to: 'migraines#calendar', as: :calendar
 
   # for version 2 
   # resources :posts do

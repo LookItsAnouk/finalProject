@@ -1,0 +1,24 @@
+<%= render "navBar" %>
+<div class="container">
+  <div class="row">
+      <h3>Migraine History</h3>
+  </div>
+</div>
+<div class="card-columns" style="padding: 10px;">
+<% if user_signed_in? %>
+  <% @migraine.each do |migraine| %>
+    <% if migraine.user_id == current_user.id %>
+    <div class="card" >
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to migraine.migraine_date.strftime("%d of %B, %Y"), migraine%></h5>
+        <p class="card-text"><%= migraine.severity %></p>
+        <p class="card-text"><%= migraine.notes %></p>
+        </p>
+      </div>    
+    </div> 
+     <% end %>
+  <% end %> 
+<% end %>
+</div>
+
+<%= render "layouts/footer" %>
